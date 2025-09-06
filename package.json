@@ -1,0 +1,25 @@
+{
+  "name": "netflix-gpt",
+  "version": "1.0.0",
+  "description": "GPT integration to netflix clone",
+  "scripts": {
+    "start":"npx parcel ./public/index.html",
+    "build":"npx parcel build ./public/index.html",
+    "test": "jest"
+  },
+  "keywords": [
+    "[\"netflix\"",
+    "\"clone\"",
+    "\"GPT\"",
+    "\"suggestion\"]"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react": "^19.1.1",
+    "react-dom": "^19.1.1"
+  },
+  "devDependencies": {
+    "parcel": "^2.15.4"
+  }
+}
