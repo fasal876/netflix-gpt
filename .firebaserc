@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "netflix-gpt-3bacc",
+    "netflix": "netflix-gpt-3bacc"
+  },
+  "targets": {},
+  "etags": {}
+}

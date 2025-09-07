@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "GPT integration to netflix clone",
   "scripts": {
-    "start": "npx parcel ./public/index.html",
-    "build": "npx parcel build ./public/index.html",
+    "start": "npx parcel ./src/index.html",
+    "build": "npx parcel build ./src/index.html",
     "test": "jest"
   },
   "keywords": [
@@ -16,9 +16,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.9.0",
     "firebase": "^12.2.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-redux": "^9.2.0",
     "react-router": "^7.8.2"
   },
   "devDependencies": {
