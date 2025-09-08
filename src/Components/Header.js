@@ -1,23 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NETFLIX_LOGO } from "../utilities/constants";
-import { signOut } from "firebase/auth";
+import { getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../firebase-config";
 import { useNavigate } from "react-router";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addUser, removeUser } from "../utilities/userSlice";
+import useAuthChange from "../hooks/useAuthChange";
 const Header = () => {
-  const navigate = useNavigate();
-  const user = useSelector((store) => store.user);
-  const displayName = user?.displayName;
-  const handleClick = () => {
-    signOut(auth)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((error) => {
-        // An error happened.
-        console.log(error);
-      });
-  };
+  const { user, displayName, handleClick } = useAuthChange();
   return (
     <div className="absolute  top-0 w-full h-18 z-10 bg-gradient-to-b from-black flex items-center justify-between">
       <div>

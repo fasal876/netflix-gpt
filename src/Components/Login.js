@@ -11,11 +11,8 @@ import useLogin from "../utilities/useLogin";
 const Login = () => {
   const {
     isSignIn,
-    setIsSignIn,
     errMessage,
-    setErrMessage,
     isLoading,
-    setLoading,
     email,
     name,
     password,

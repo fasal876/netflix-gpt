@@ -1,7 +1,4 @@
-import { useState, useRef, use } from "react";
-import { useNavigate } from "react-router";
-import { useDispatch } from "react-redux";
-import { addUser } from "../utilities/userSlice";
+import { useState, useRef } from "react";
 import { checkValidate } from "./checkValidate";
 import {
   createUserWithEmailAndPassword,
@@ -9,13 +6,15 @@ import {
   updateProfile,
   getAuth,
 } from "firebase/auth";
+import { addUser } from "./userSlice";
+import { useDispatch } from "react-redux";
 const useLogin = () => {
   const auth = getAuth();
+  const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(true);
   const [errMessage, setErrMessage] = useState(null);
   const [isLoading, setLoading] = useState(false);
-  const dispatch = useDispatch();
-  const navigate = useNavigate();
+
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
@@ -45,9 +44,13 @@ const useLogin = () => {
           photoURL: "",
         });
         setLoading(false);
-        const { uid, email, displayName } = auth.currentUser;
-        dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate("/browse");
+        dispatch(
+          addUser({
+            displayName: auth.currentUser.displayName,
+            email: auth.currentUser.email,
+            uid: auth.currentUser.uid,
+          })
+        );
       } catch (err) {
         const errorCode = err.code;
         const errorMessage = err.message;
@@ -65,7 +68,6 @@ const useLogin = () => {
           const user = userCredential.user;
           console.log(user);
           setLoading(false);
-          navigate("/browse");
         })
         .catch((error) => {
           const errorCode = error.code;
