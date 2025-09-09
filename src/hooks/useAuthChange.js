@@ -39,7 +39,6 @@ const useAuthChange = () => {
       .then(() => {})
       .catch((error) => {
         // An error happened.
-        console.log(error);
       });
   };
   return { user, displayName, handleClick };

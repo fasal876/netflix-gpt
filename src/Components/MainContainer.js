@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
 import MovieTitle from "./MovieTitle";
 import MovieBackGround from "./MovieBackGround";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
   const movies = useSelector((store) => store?.movies);
-  const nowPlayingMovie = movies?.nowPlayingMovies?.[4];
+  const nowPlayingMovie = movies?.nowPlayingMovies?.[13];
 
   return (
     <div>

@@ -13,9 +13,7 @@ const useNowPlayingMovies = () => {
       const res = await fetch(TM_URL, OPTIONS);
       const movieList = await res.json();
       dispatch(addNowPlayingMovies(movieList.results));
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 };
 export default useNowPlayingMovies;

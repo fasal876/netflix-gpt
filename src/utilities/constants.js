@@ -12,3 +12,10 @@ export const OPTIONS = {
   },
 };
 export const MOVIE_CLIP_URL = "https://api.themoviedb.org/3/movie/";
+export const IMAGE_CDN = "https://image.tmdb.org/t/p/w500";
+
+export const supportedLang = [
+  { id: "en", name: "English" },
+  { id: "hindi", name: "Hindi" },
+  { id: "mal", name: "Malayalam" },
+];

@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { MOVIE_CLIP_URL, OPTIONS } from "../utilities/constants";
 
 function useGetMovieTrailer(id) {
-  console.log(id);
   const [key, setKey] = useState("");
   useEffect(() => {
     getMovieVideos();

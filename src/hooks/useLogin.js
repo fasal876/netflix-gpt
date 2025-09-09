@@ -1,12 +1,12 @@
 import { useState, useRef } from "react";
-import { checkValidate } from "./checkValidate";
+import { checkValidate } from "../utilities/checkValidate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
   getAuth,
 } from "firebase/auth";
-import { addUser } from "./userSlice";
+import { addUser } from "../utilities/userSlice";
 import { useDispatch } from "react-redux";
 const useLogin = () => {
   const auth = getAuth();
@@ -66,7 +66,7 @@ const useLogin = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log(user);
+          user;
           setLoading(false);
         })
         .catch((error) => {
