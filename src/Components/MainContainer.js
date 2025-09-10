@@ -3,8 +3,11 @@ import MovieBackGround from "./MovieBackGround";
 import { useSelector } from "react-redux";
 
 const MainContainer = () => {
-  const movies = useSelector((store) => store?.movies);
-  const nowPlayingMovie = movies?.nowPlayingMovies?.[13];
+  const { nowPlayingMovies } = useSelector((store) => store?.movies);
+  if (!nowPlayingMovies) {
+    return null;
+  }
+  const nowPlayingMovie = nowPlayingMovies[13];
 
   return (
     <div>
@@ -12,7 +15,7 @@ const MainContainer = () => {
         original_title={nowPlayingMovie?.original_title}
         overview={nowPlayingMovie?.overview}
       />
-      {nowPlayingMovie && <MovieBackGround id={nowPlayingMovie?.id} />}
+      <MovieBackGround id={nowPlayingMovie?.id} />
     </div>
   );
 };
