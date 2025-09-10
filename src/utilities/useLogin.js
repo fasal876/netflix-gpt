@@ -1,20 +1,19 @@
 import { useState, useRef } from "react";
-import { checkValidate } from "../utilities/checkValidate";
+import { checkValidate } from "./checkValidate";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   updateProfile,
   getAuth,
 } from "firebase/auth";
-import { addUser } from "../utilities/userSlice";
+import { addUser } from "./userSlice";
 import { useDispatch } from "react-redux";
+
 const useLogin = () => {
-  const auth = getAuth();
   const dispatch = useDispatch();
   const [isSignIn, setIsSignIn] = useState(true);
   const [errMessage, setErrMessage] = useState(null);
   const [isLoading, setLoading] = useState(false);
-
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
@@ -22,6 +21,7 @@ const useLogin = () => {
     setIsSignIn(!isSignIn);
   };
   const handleSubmit = async (e) => {
+    const auth = getAuth();
     e.preventDefault();
     setLoading(true);
     const validation = checkValidate(
@@ -66,7 +66,7 @@ const useLogin = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          user;
+          console.log(user);
           setLoading(false);
         })
         .catch((error) => {

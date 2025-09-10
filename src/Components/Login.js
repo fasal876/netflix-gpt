@@ -1,6 +1,12 @@
+import { useRef, useState } from "react";
+import { useNavigate } from "react-router";
 import { NETFLIX_BG } from "../utilities/constants";
 import Header from "./Header";
-import useLogin from "../hooks/useLogin";
+import { checkValidate } from "../utilities/checkValidate";
+
+import { useDispatch } from "react-redux";
+import { addUser } from "../utilities/userSlice";
+import useLogin from "../utilities/useLogin";
 //clear your dougt about diffing algorithm when it see same element eg:input
 const Login = () => {
   const {

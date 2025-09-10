@@ -19,3 +19,6 @@ export const supportedLang = [
   { id: "hindi", name: "Hindi" },
   { id: "mal", name: "Malayalam" },
 ];
+
+export const QUERY_MOVIE_URL =
+  "https://api.themoviedb.org/3/search/movie?query=";

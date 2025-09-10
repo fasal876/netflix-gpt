@@ -1,15 +1,15 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 import { addUser } from "../utilities/userSlice";
+import { auth } from "../firebase-config";
 
 const useAuthChange = () => {
   const navigate = useNavigate();
   const user = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const displayName = user?.displayName;
-  const auth = getAuth();
   useEffect(() => {
     const undSubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -39,6 +39,7 @@ const useAuthChange = () => {
       .then(() => {})
       .catch((error) => {
         // An error happened.
+        console.log(error);
       });
   };
   return { user, displayName, handleClick };
